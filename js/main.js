@@ -1,17 +1,25 @@
-var $body = $('.banner');
-var $star;
-var bannerWidth = $body.outerWidth();
-var bannerHeight = $body.outerHeight();
+var $banner = $('.banner');
+var $addStars;
+var $width = $banner.outerWidth();
+var $height = $banner.outerHeight();
+
+
 
 for (i = 0; i < 75; i++) {
-  $star = $('<div>');
-  $star.addClass('star');
-  $star.css({
-    top: Math.random() * bannerHeight,
-    left: Math.random() * bannerWidth,
-    opacity: Math.random(),
-    transform: 'rotate(' + Math.random() * 360 + 'deg) scale(' + Math.random() + ')'
-
+  $rotateNum = Math.random() * 1000;
+  $scaleNum = Math.random() * 10000;
+  $animateNum = Math.random() * 50;
+  $addStars = $('<div>');
+  $addStars.addClass('star');
+  $addStars.css({
+    left: Math.random() * 1000,
+    top: Math.random() * 1000,
+    opacity: Math.random() * 10,
+    width: Math.random() * 100,
+    transform: 'rotate(' + $rotateNum + 'deg)',
+    transform: 'scale(' + $scaleNum + '%)',
+    animation: 'growstars ' + $animateNum + 's alternate infinite'
   });
-  $body.append($star);
-}
+
+ $banner.append($addStars);
+};
